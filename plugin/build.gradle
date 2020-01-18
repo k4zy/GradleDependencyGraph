@@ -1,0 +1,34 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.1'
+}
+apply plugin: 'kotlin'
+
+// for install local
+apply plugin: 'maven'
+archivesBaseName = 'dependency-graph'
+group = 'app.kazy.plugin.dependency.graph'
+version = '0.0.1'
+
+// for gradle publish plugin
+pluginBundle {
+    website = 'https://github.com/kazyApp/GradleDependencyGraph'
+    vcsUrl = 'https://github.com/kazyApp/GradleDependencyGraph.git'
+    tags = ['dot', 'graphviz', 'graph', 'dependencies']
+}
+gradlePlugin {
+    plugins {
+        dependencyGraphPlugin {
+            id = 'app.kazy.plugin.dependency-graph'
+            displayName = 'DependencyGraphPlugin'
+            description = 'Draw cool graph'
+            implementationClass = 'app.kazy.plugin.dependency.graph.DependencyGraphPlugin'
+        }
+    }
+}
+
+dependencies {
+    compileOnly gradleApi()
+    implementation localGroovy()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}

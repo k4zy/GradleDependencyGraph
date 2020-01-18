@@ -1,0 +1,2 @@
+rootProject.name='gradle-dependency-graph'
+include ':plugin'
