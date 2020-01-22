@@ -8,7 +8,7 @@ apply plugin: 'kotlin'
 apply plugin: 'maven'
 archivesBaseName = 'dependency-graph'
 group = 'app.kazy.plugin.dependency.graph'
-version = '0.0.1'
+version = '0.0.2'
 
 // for gradle publish plugin
 pluginBundle {
